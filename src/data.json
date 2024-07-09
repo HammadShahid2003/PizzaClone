@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "name": "Non-Veg Supreme",
+      "src": "https://www.dominos.co.in/files/items/Non-Veg_Supreme.jpg",
+      "price": "200"
+    },
+    {
+      "id": 2,
+      "name": "Golden Corn Veg",
+      "src": "https://www.dominos.co.in//files/items/golden_corn_veg.jpg",
+      "price": "180"
+    },
+    {
+      "id": 3,
+      "name": "Pepperoni",
+      "src": "https://www.dominos.co.in/files/items/5_Pepper.jpg",
+      "price": "190"
+    },
+    {
+      "id": 4,
+      "name": "Margherita",
+      "src": "https://www.dominos.co.in/files/items/Margherit.jpg",
+      "price": "170"
+    },
+    {
+      "id": 5,
+      "name": "Chicken Golden Delight",
+      "src": "https://www.dominos.co.in/files/items/Chicken_Golden_Delight.jpg",
+      "price": "210"
+    },
+    {
+      "id": 6,
+      "name": "Double Cheese Margherita",
+      "src": "https://www.dominos.co.in/files/items/Double_Cheese_Margherita.jpg",
+      "price": "200"
+    },
+    {
+      "id": 7,
+      "name": "Prime Cheesy",
+      "src": "https://www.dominos.co.in/files/items/PrimeCheesyL.jpg",
+      "price": "220"
+    },
+    {
+      "id": 8,
+      "name": "Pepper Barbeque & Onion",
+      "src": "https://www.dominos.co.in/files/items/Pepper_Barbeque_&_Onion.jpg",
+      "price": "210"
+    },
+    {
+      "id": 9,
+      "name": "Peppy Paneer Pizza",
+      "src": "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg",
+      "price": "200"
+    }
+  ]
+  
