@@ -1,10 +1,12 @@
 import { Breadcrumb, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
 import data from '../data.json';
+import { useState } from 'react';
 
 
 
 function HomeCard({name,price,src,setCartCount,cartCount}){
-
+    const [sizeValue,setSizeValue]=useState("small");
+    const [Quantity,setQuantity]=useState(1);
 return(
 
     <>
@@ -14,27 +16,27 @@ return(
                 <div className='inside-options'>
                 
                     <p>Variants:</p>
-                    <select name="Size" id="" className='options-select'>
-                        <option value="">Large</option>
-                        <option value="">Medium</option>
-                        <option value="">Small</option>
+                    <select name="Size" id="" className='options-select' value={sizeValue} onChange={(event)=>{setSizeValue(event.target.value);}}>
+                        <option value="large">Large</option>
+                        <option value="medium">Medium</option>
+                        <option value="small">Small</option>
                     </select>
                     
                     </div>
                     <div className='inside-options'>
                       
                     <p>Quantity:</p>
-                    <select name="Quantity" id="" className='options-select'>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
-                        <option value="">6</option>
-                        <option value="">7</option>
-                        <option value="">8</option>
-                        <option value="">9</option>
-                        <option> 10</option>
+                    <select name="Quantity" id="" className='options-select' value={Quantity} onChange={(event)=>{setQuantity(event.target.value)}}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value={"10"}> 10</option>
                     </select>
                     
                 </div>
@@ -43,7 +45,7 @@ return(
             <div className="options-fields">
                 <div className='inside-options'>
                 
-                    <p style={{fontWeight:"bold"}}>{`Price:${price} Rs/-`}</p>
+                    <p style={{fontWeight:"bold"}}>{`Price:${price[sizeValue]*(Quantity)} Rs/-`}</p>
                     
                     
                     </div>

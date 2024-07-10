@@ -7,6 +7,8 @@ import Homepage from './Components/HomePage'
 import {Routes,Route} from 'react-router-dom'
 import Cart from './Components/Cart'
 import CartCard from './Components/CartCard'
+import LoginForm from './Components/LoginForm'
+import RegisterForm from './Components/RegisterForm'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -17,6 +19,8 @@ function App() {
       <Routes>
       <Route path='/' element={<Homepage/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
+        <Route path='/login' element={<LoginForm/>}></Route>
+        <Route path='/register' element={<RegisterForm/>}></Route>
       </Routes>
       </>
   )

@@ -15,7 +15,8 @@ const items = new Array(2).fill(null).map((_, index) => ({
 }));
     const [cartCount,setCartCount]=useState(0);
     
-    items[0].label='Cart '+cartCount;
+    items[0].label=(<Link to='/cart' >{'Cart '+cartCount} </Link>);
+    items[1].label=(<Link to='/login' >Login</Link>);
   const {
     token: { ColorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -33,23 +34,45 @@ const items = new Array(2).fill(null).map((_, index) => ({
         />
       </Header>
       <Content style={{ padding: '0' ,margin:'0',background:'#F8F8F8',}}>
-      <Flex style={{width:'100vw' ,marginTop:'4rem'}} gap={'30rem'} justify='center'>
+      <Flex style={{width:'100vw' ,marginTop:'4rem'}} gap={'20rem'} justify='center'>
         
           <div className='left-cart-card'
             key='1'
-            style={{
-              backgroundColor: 'white'
-            }}
+            
           ><h1>My Cart</h1>
           <Flex>
-            <div className='cart-items'><p>Non Veg Pizza</p>
+            <div className='cart-items cart-items-textSide'><p>Non Veg Pizza</p>
             <p>Price:100</p>
             <p>Quantity: <PlusOutlined style={{color:'green'}}/>  1   <MinusOutlined style={{color:'red'}}/> </p>
             </div>
             <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" style={{height:'80px',width:'80px'}}/></div>
             <div className='cart-items' style={{display:'flex', justifyContent:'center',alignItems:'center'}}><DeleteTwoTone twoToneColor='#ff0000' /></div>
           </Flex>
-          
+          <Flex>
+            <div className='cart-items cart-items-textSide'><p>Non Veg Pizza</p>
+            <p>Price:100</p>
+            <p>Quantity: <PlusOutlined style={{color:'green'}}/>  1   <MinusOutlined style={{color:'red'}}/> </p>
+            </div>
+            <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" style={{height:'80px',width:'80px'}}/></div>
+            <div className='cart-items' style={{display:'flex', justifyContent:'center',alignItems:'center'}}><DeleteTwoTone twoToneColor='#ff0000' /></div>
+          </Flex>
+          <Flex>
+            <div className='cart-items cart-items-textSide'><p>Non Veg Pizza</p>
+            <p>Price:100</p>
+            <p>Quantity: <PlusOutlined style={{color:'green'}}/>  1   <MinusOutlined style={{color:'red'}}/> </p>
+            </div>
+            <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" style={{height:'80px',width:'80px'}}/></div>
+            <div className='cart-items' style={{display:'flex', justifyContent:'center',alignItems:'center'}}><DeleteTwoTone twoToneColor='#ff0000' /></div>
+          </Flex>
+          <Flex>
+            <div className='cart-items cart-items-textSide'><p>Non Veg Pizza</p>
+            <p>Price:100</p>
+            <p>Quantity: <PlusOutlined style={{color:'green'}}/>  1   <MinusOutlined style={{color:'red'}}/> </p>
+            </div>
+            <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" style={{height:'80px',width:'80px'}}/></div>
+            <div className='cart-items' style={{display:'flex', justifyContent:'center',alignItems:'center'}}><DeleteTwoTone twoToneColor='#ff0000' /></div>
+          </Flex>
+
           
           </div>
           <div className='right-cart-card'

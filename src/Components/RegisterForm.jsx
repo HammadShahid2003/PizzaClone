@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Breadcrumb, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
-import HomeCard from './HomeCard';
-import data from '../data.json';
+import { Flex, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-
-const Homepage = () => {
+const RegisterForm = () => {
     const { Header, Content, Footer} = Layout;
 
 
@@ -19,6 +16,8 @@ const items = new Array(2).fill(null).map((_, index) => ({
     
     items[0].label=(<Link to='/cart' >{'Cart '+cartCount} </Link>);
     items[1].label=(<Link to='/login' >Login</Link>);
+    
+    
   const {
     token: { ColorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -32,26 +31,30 @@ const items = new Array(2).fill(null).map((_, index) => ({
           mode="horizontal"
           defaultSelectedKeys={['2']}
           items={items}
-          style={{ flex: "auto", minWidth: 0, flexDirection:'row-reverse' }}
+          style={{ flex: 1, minWidth: 0, flexDirection:'row-reverse' }}
         />
       </Header>
-      <Content style={{ padding: '0' ,margin:'0',background:'white',}}>
+      <Content style={{ padding: '0' ,margin:'4rem',background:'#F8F8F8',}}>
+      <Row  >
+        <Col span={10} offset={6} className='login-form'>
+        <form action="submit" >
+          <p className='login-title'>Register User</p>
+        <input type="text" placeholder='Enter Name' required className='login-input-fields'/>
+        <br/>
+        <input type="email" placeholder='Enter Email' required className='login-input-fields'/>
         
-            
-            <Row justify={"space-between"} className='row-design' >
-            {
-                data.map((pizza)=>{
-                    return(
-                        <Col span={8}>
-                            <HomeCard name={pizza.name} price={pizza.price} src={pizza.src} setCartCount={setCartCount} cartCount={cartCount}/>
-
-
-                        </Col>
-                    );
-                })
-            }
-          </Row>
+        <br/>
+        <input type="password" placeholder='Enter Password' required className='login-input-fields'/>
+        <br/>
+        <input type='password' placeholder='Confirm Password' className='login-input-fields'/>
+        <br/>
+        <Button type='primary' danger>Register</Button>
         
+        <br/>
+        <Link to='/login'>Click here to Login</Link>
+        </form>
+        </Col>
+      </Row>
       </Content>
      
       
@@ -59,4 +62,4 @@ const items = new Array(2).fill(null).map((_, index) => ({
   );
 };
 
-export default Homepage;
+export default RegisterForm;
