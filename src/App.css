@@ -68,6 +68,7 @@ font-size: larger;
 .cart-items-textSide{
   border-bottom: lightgrey outset 1px;
   padding: 2rem 3rem;
+  width:25rem
 
 }
 .login-form{

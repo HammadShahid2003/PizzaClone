@@ -9,20 +9,21 @@ import Cart from './Components/Cart'
 import CartCard from './Components/CartCard'
 import LoginForm from './Components/LoginForm'
 import RegisterForm from './Components/RegisterForm'
+import NavigationBar from './Components/Header'
+import {Layout} from 'antd';
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [cartCount, setCartCount] = useState(0)
+  const[cartItems,setCartItems]=useState([]);
   return (
-    <>
-    {/* <Homepage className="home"/> */}
-    
+    <Layout style={{width:'100vw',height:'100vh'}}>
+    <NavigationBar cartCount={cartCount} />
       <Routes>
-      <Route path='/' element={<Homepage/>}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/' element={<Homepage cartCount={cartCount} setCartCount={setCartCount} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
+        <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems} cartCount={cartCount} setCartCount={setCartCount}/>}></Route>
         <Route path='/login' element={<LoginForm/>}></Route>
         <Route path='/register' element={<RegisterForm/>}></Route>
       </Routes>
-      </>
+      </Layout>
   )
 }
 

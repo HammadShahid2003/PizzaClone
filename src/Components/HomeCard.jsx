@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 
-function HomeCard({name,price,src,setCartCount,cartCount}){
+function HomeCard({pid,name,price,src,setCartCount,cartCount,cartItems,setCartItems}){
     const [sizeValue,setSizeValue]=useState("small");
     const [Quantity,setQuantity]=useState(1);
 return(
@@ -51,8 +51,12 @@ return(
                     </div>
                     <div className='inside-options'>
                     <Button type="primary" danger onClick={()=>{
-                        console.log(cartCount);
+                            const foundItem = cartItems.find(item => item.pid === pid);
+                            if(!foundItem){
                             setCartCount(cartCount+1);
+                            const priceToSend=price[sizeValue];
+                            setCartItems([...cartItems,{pid,name,sizeValue,Quantity,priceToSend}]);
+                            }
                     }}>ADD TO CART</Button>
                     
                 </div>
