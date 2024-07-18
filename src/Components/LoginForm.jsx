@@ -12,7 +12,7 @@ const LoginForm = () => {
 
   return (
     
-      <Content style={{ padding: '0' ,margin:'4rem',background:'#F8F8F8',}}>
+      <Content className='login-content'>
       <Row  >
         <Col span={10} offset={6} className='login-form'>
         <form action="submit" >

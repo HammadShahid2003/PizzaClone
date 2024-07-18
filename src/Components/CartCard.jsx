@@ -4,17 +4,42 @@ import Icon,{DeleteTwoTone,MinusOutlined,PlusOutlined} from '@ant-design/icons'
 
 function CartCard({name,sizeValue,quantity,priceToSend,pid,removeItem,totalPrice,setTotalPrice}){
   const [Quantity,setQuantity]=useState(Number(quantity));
+  const [eachPrice,seteachPrice]=useState(Number(priceToSend)*Quantity);
+
+
+  function handleIncrease(){
+    setQuantity(Quantity+1);
+    seteachPrice(Number(priceToSend)*Quantity);
+    setTotalPrice(totalPrice+priceToSend);
+
+  }
+  
+  function handleDecrease(){
+    if(Quantity==1){
+      handleDelete();
+      return;
+    }
+    setQuantity(Quantity-1);
+    seteachPrice(Number(priceToSend)*Quantity);
+    setTotalPrice(totalPrice-priceToSend);
+  }
+  function handleDelete(){
+    removeItem(pid);
+    setTotalPrice(totalPrice-(Number(priceToSend)*Quantity))
+
+
+  }
   
 return(
 
     <Flex>
       <div className='cart-items cart-items-textSide'><p>{`${name} [${sizeValue}]`}</p>
-      <p>{`Price:${Number(priceToSend)*Quantity}`}</p>
-      <p>Quantity: <PlusOutlined style={{color:'green'}} onClick={()=>{setQuantity(Quantity+1); setTotalPrice(totalPrice+Number(priceToSend)*Quantity)}}/>  {Quantity}  
-         <MinusOutlined style={{color:'red'}} onClick={()=>{setQuantity(Quantity-1);setTotalPrice(totalPrice-Number(priceToSend)*Quantity)}}/> </p>
+      <p>{`Price:${Number(priceToSend*Quantity)}`}</p>
+      <p>Quantity: <PlusOutlined style={{color:'green'}} onClick={handleIncrease}/>  {Quantity}  
+         <MinusOutlined style={{color:'red'}} onClick={handleDecrease}/> </p>
       </div>
-      <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" style={{height:'80px',width:'80px'}}/></div>
-      <div className='cart-items' style={{display:'flex', justifyContent:'center',alignItems:'center'}}><DeleteTwoTone twoToneColor='#ff0000' onClick={()=>{removeItem(pid);}}/></div>
+      <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" className="Cart-Card-pic"/></div>
+      <div className='cart-items' style={{display:'flex', justifyContent:'center',alignItems:'center'}}><DeleteTwoTone twoToneColor='#ff0000' onClick={handleDelete}/></div>
     </Flex>
     
 

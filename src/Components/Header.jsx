@@ -28,7 +28,7 @@ function NavigationBar({cartCount}){
               mode="horizontal"
               defaultSelectedKeys={['2']}
               items={items}
-              style={{ flex: 1, minWidth: 0, flexDirection:'row-reverse' }}
+              className="menu-content"
             />
           </Header>
           

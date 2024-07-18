@@ -29,8 +29,8 @@ const Cart = ({cartItems,setCartItems ,cartCount,setCartCount}) => {
   const [totalPrice,setTotalPrice]=useState(tempPrice);
   return (
     
-      <Content style={{ padding: '0' ,margin:'0',background:'#F8F8F8',}}>
-      <Flex style={{width:'100vw' ,marginTop:'4rem'}} gap={'20rem'} justify='center'>
+      <Content className='Content-style'>
+      <Flex className='Cart-page-Style' gap={'20rem'} justify='center'>
         
           <div className='left-cart-card'
             key='2'

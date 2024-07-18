@@ -11,7 +11,7 @@ return(
 
     <>
     <Card title={name} className='card-style'>
-            <img src={src}  alt="" style={{height: '50%', width: '60%'}}/>
+            <img src={src}  alt="" className='card-style-img'/>
             <div className="options-fields">
                 <div className='inside-options'>
                 

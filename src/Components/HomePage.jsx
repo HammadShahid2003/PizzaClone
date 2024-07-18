@@ -15,7 +15,7 @@ const Homepage = ({cartCount,setCartCount,cartItems,setCartItems}) => {
   return (
     
       
-      <Content style={{ padding: '0' ,margin:'0',background:'white',}}>
+      <Content className='Content-style'>
         
             
             <Row justify={"space-between"} className='row-design' >
