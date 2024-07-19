@@ -1,11 +1,12 @@
 import React from "react";
 import { Breadcrumb, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
 import { Link } from "react-router-dom";
+import useCart from "../CartContext";
 
-function NavigationBar({cartCount}){
+function NavigationBar(){
     const { Header, Content} = Layout;
 
-
+    const {cartCount}= useCart();
     const labels = ['Cart','Login']
     
     const items = new Array(2).fill(null).map((_, index) => ({
@@ -19,7 +20,7 @@ function NavigationBar({cartCount}){
       const {
         token: { ColorBgContainer, borderRadiusLG },
       } = theme.useToken();
-    
+   
       return (
           <Header style={{ display: 'flex', alignItems: "center",background:'white', boxShadow:'10px 10px 5px lightgrey' }}>
             <div className='side-logo' > <Link className="demo-logo" to='/'>SHEY PIZZA</Link><img className="logo-pic"src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/pizza_1f355.png"  alt=""/></div>

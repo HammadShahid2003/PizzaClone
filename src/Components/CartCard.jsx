@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { Flex } from "antd";
 import Icon,{DeleteTwoTone,MinusOutlined,PlusOutlined} from '@ant-design/icons'
+import useCart from "../CartContext";
 
 function CartCard({name,sizeValue,quantity,priceToSend,pid,removeItem,totalPrice,setTotalPrice}){
   const [Quantity,setQuantity]=useState(Number(quantity));
   const [eachPrice,seteachPrice]=useState(Number(priceToSend)*Quantity);
 
+  const {cartItems}=useCart();
+  const item=cartItems.find(item=>item.pid===Number(pid));
 
   function handleIncrease(){
     setQuantity(Quantity+1);
-    seteachPrice(Number(priceToSend)*Quantity);
+    
+    // seteachPrice(Number(priceToSend)*Quantity);
     setTotalPrice(totalPrice+priceToSend);
+    console.log(Quantity);
 
   }
   
@@ -20,8 +25,10 @@ function CartCard({name,sizeValue,quantity,priceToSend,pid,removeItem,totalPrice
       return;
     }
     setQuantity(Quantity-1);
-    seteachPrice(Number(priceToSend)*Quantity);
+   
+    // seteachPrice(Number(priceToSend)*Quantity);
     setTotalPrice(totalPrice-priceToSend);
+    console.log(Quantity);
   }
   function handleDelete(){
     removeItem(pid);

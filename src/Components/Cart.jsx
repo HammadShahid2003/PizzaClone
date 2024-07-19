@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Flex, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
 import { Link } from 'react-router-dom';
 import data from '../data.json'
 import Icon,{DeleteTwoTone,MinusOutlined,PlusOutlined} from '@ant-design/icons'
 import CartCard from './CartCard';
-const Cart = ({cartItems,setCartItems ,cartCount,setCartCount}) => {
+import useCart from '../CartContext';
+const Cart = () => {
     const {Content} = Layout;
+    const {cartCount,setCartCount,cartItems,setCartItems}=useCart();
+    
     function removeItem(id){
+      console.log(cartItems);
      const newCart=cartItems.filter((item)=>{
         return item.pid !=id;
       });
@@ -18,15 +22,19 @@ const Cart = ({cartItems,setCartItems ,cartCount,setCartCount}) => {
     token: { ColorBgContainer, borderRadiusLG },
   } = theme.useToken();
   
-    let tempPrice=0;
-  
-    for(const item of cartItems){
+   
+const [totalPrice,setTotalPrice]=useState(0);
+   
+    useMemo(()=>{
+      let tempPrice=0;
+      for(const item of cartItems){
       
-      tempPrice+=Number(item.priceToSend)*Number(item.Quantity);
-    }
-    
+        tempPrice+=Number(item.priceToSend)*Number(item.Quantity);
+      }
+      setTotalPrice(tempPrice);
+    },[cartItems])
   
-  const [totalPrice,setTotalPrice]=useState(tempPrice);
+  
   return (
     
       <Content className='Content-style'>

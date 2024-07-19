@@ -1,12 +1,14 @@
-import { Breadcrumb, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
-import data from '../data.json';
+import {  Card,Button } from 'antd';
+
 import { useState } from 'react';
+import useCart from '../CartContext';
 
 
 
-function HomeCard({pid,name,price,src,setCartCount,cartCount,cartItems,setCartItems}){
+function HomeCard({pid,name,price,src}){
     const [sizeValue,setSizeValue]=useState("small");
     const [Quantity,setQuantity]=useState(1);
+    const {cartCount,setCartCount,cartItems,setCartItems}=useCart();
 return(
 
     <>

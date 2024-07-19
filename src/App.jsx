@@ -11,19 +11,31 @@ import LoginForm from './Components/LoginForm'
 import RegisterForm from './Components/RegisterForm'
 import NavigationBar from './Components/Header'
 import {Layout} from 'antd';
+import { CartContextProvider } from './CartContext'
 function App() {
-  const [cartCount, setCartCount] = useState(0)
-  const[cartItems,setCartItems]=useState([]);
+  const [cartCount, setcartCount] = useState(0)
+  const[cartItems,setcartItems]=useState([]);
+  function setCartCount(val){
+    setcartCount(val);
+  }
+  function setCartItems(val){
+    setcartItems(val);
+  }
   return (
+    <CartContextProvider value={{cartCount,cartItems,setCartCount,setCartItems}}>
     <Layout style={{width:'100vw',height:'100vh'}}>
-    <NavigationBar cartCount={cartCount} />
+
+    <NavigationBar />
       <Routes>
-      <Route path='/' element={<Homepage cartCount={cartCount} setCartCount={setCartCount} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-        <Route path='/cart' element={<Cart cartItems={cartItems} setCartItems={setCartItems} cartCount={cartCount} setCartCount={setCartCount}/>}></Route>
+        
+      <Route path='/' element={<Homepage/>}></Route>
+        <Route path='/cart' element={<Cart />}></Route>
         <Route path='/login' element={<LoginForm/>}></Route>
         <Route path='/register' element={<RegisterForm/>}></Route>
+        
       </Routes>
       </Layout>
+      </CartContextProvider>
   )
 }
 
