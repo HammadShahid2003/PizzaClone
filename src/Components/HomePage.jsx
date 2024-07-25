@@ -9,14 +9,15 @@ import useCart from '../CartContext';
 
 const Homepage = () => {
     const {Content} = Layout;
-    
+    const pizzas_url=import.meta.env.VITE_API_URL;
+    console.log(pizzas_url);
   const {
     token: { ColorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
  const [pizzas,setPizzas]=useState([]);
   useEffect(()=>{
-    axios.get("http://localhost:3000/pizzas")
+    axios.get(pizzas_url)
     .then((res)=>{
         setPizzas(res.data);
         
