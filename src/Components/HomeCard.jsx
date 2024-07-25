@@ -2,13 +2,18 @@ import {  Card,Button } from 'antd';
 
 import { useState } from 'react';
 import useCart from '../CartContext';
-
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../cartSlice';
+import { useSelector } from 'react-redux';
 
 
 function HomeCard({pid,name,price,src}){
     const [sizeValue,setSizeValue]=useState("small");
     const [Quantity,setQuantity]=useState(1);
-    const {cartCount,setCartCount,cartItems,setCartItems}=useCart();
+    // const {cartCount,setCartCount,cartItems,setCartItems}=useCart();
+    const dispatch=useDispatch();
+    const cartItems=useSelector(state=>state.cart.items);
+
 return(
 
     <>
@@ -55,9 +60,9 @@ return(
                     <Button type="primary" danger onClick={()=>{
                             const foundItem = cartItems.find(item => item.pid === pid);
                             if(!foundItem){
-                            setCartCount(cartCount+1);
+                            
                             const priceToSend=price[sizeValue];
-                            setCartItems([...cartItems,{pid,name,sizeValue,Quantity,priceToSend}]);
+                            dispatch(addToCart({pid,name,sizeValue,Quantity,priceToSend}));
                             }
                     }}>ADD TO CART</Button>
                     

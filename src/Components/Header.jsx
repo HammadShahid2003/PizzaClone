@@ -2,11 +2,16 @@ import React from "react";
 import { Breadcrumb, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
 import { Link } from "react-router-dom";
 import useCart from "../CartContext";
+import { useSelector } from "react-redux";
+
 
 function NavigationBar(){
     const { Header, Content} = Layout;
 
-    const {cartCount}= useCart();
+    
+    const cartVal=useSelector(state=>state.cart.items);
+   
+    let cartCount=cartVal.length;
     const labels = ['Cart','Login']
     
     const items = new Array(2).fill(null).map((_, index) => ({

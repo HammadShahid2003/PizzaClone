@@ -9,7 +9,7 @@ import useCart from '../CartContext';
 
 const Homepage = () => {
     const {Content} = Layout;
-    const {cartCount,setCartCount,cartItems,setCartItems}=useCart();
+    
   const {
     token: { ColorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -22,7 +22,7 @@ const Homepage = () => {
         
     })
     .catch((err)=>{
-        console.log("cannot fetch data+"+err);
+        alert("Cannot load data!!!!!!")
     })
 
   },[])

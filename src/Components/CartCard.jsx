@@ -1,38 +1,39 @@
 import React, { useState } from "react";
 import { Flex } from "antd";
 import Icon,{DeleteTwoTone,MinusOutlined,PlusOutlined} from '@ant-design/icons'
-import useCart from "../CartContext";
+import { useDispatch,useSelector } from "react-redux";
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "../cartSlice";
 
-function CartCard({name,sizeValue,quantity,priceToSend,pid,removeItem,totalPrice,setTotalPrice}){
-  const [Quantity,setQuantity]=useState(Number(quantity));
-  const [eachPrice,seteachPrice]=useState(Number(priceToSend)*Quantity);
-
-  const {cartItems}=useCart();
-  const item=cartItems.find(item=>item.pid===Number(pid));
-
+function CartCard({pid}){
+  
+  
+  const dispatch=useDispatch();
+  const cartItems=useSelector(state=>state.cart.items);
+  const item=cartItems.find(item=>item.pid===pid);
+  
   function handleIncrease(){
-    setQuantity(Quantity+1);
     
-    // seteachPrice(Number(priceToSend)*Quantity);
-    setTotalPrice(totalPrice+priceToSend);
-    console.log(Quantity);
+    dispatch(increaseQuantity(pid));
+    
+    
+    
 
   }
   
   function handleDecrease(){
-    if(Quantity==1){
+    if(item.Quantity==1){
       handleDelete();
       return;
     }
-    setQuantity(Quantity-1);
-   
-    // seteachPrice(Number(priceToSend)*Quantity);
-    setTotalPrice(totalPrice-priceToSend);
-    console.log(Quantity);
+    dispatch(decreaseQuantity(pid));
+    
+    
+    
   }
   function handleDelete(){
-    removeItem(pid);
-    setTotalPrice(totalPrice-(Number(priceToSend)*Quantity))
+    
+    dispatch(removeFromCart(pid));
+    
 
 
   }
@@ -40,9 +41,9 @@ function CartCard({name,sizeValue,quantity,priceToSend,pid,removeItem,totalPrice
 return(
 
     <Flex>
-      <div className='cart-items cart-items-textSide'><p>{`${name} [${sizeValue}]`}</p>
-      <p>{`Price:${Number(priceToSend*Quantity)}`}</p>
-      <p>Quantity: <PlusOutlined style={{color:'green'}} onClick={handleIncrease}/>  {Quantity}  
+      <div className='cart-items cart-items-textSide'><p>{`${item.name} [${item.sizeValue}]`}</p>
+      <p>{`Price:${Number(item.priceToSend*item.Quantity)}`}</p>
+      <p>Quantity: <PlusOutlined style={{color:'green'}} onClick={handleIncrease}/>  {item.Quantity}  
          <MinusOutlined style={{color:'red'}} onClick={handleDecrease}/> </p>
       </div>
       <div className='cart-items'><img src="https://www.dominos.co.in//files/items/golden_corn_veg.jpg" alt="" className="Cart-Card-pic"/></div>
