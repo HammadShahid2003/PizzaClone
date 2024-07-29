@@ -10,6 +10,7 @@ import {Layout} from 'antd';
 import { CartContextProvider } from './CartContext'
 import { Provider } from 'react-redux'
 import cartStore from "./Store/Store.js"
+import Admin from './Components/Admin Panel/Admin.jsx'
 function App() {
   // const [cartCount, setcartCount] = useState(0)
   // const[cartItems,setcartItems]=useState([]);
@@ -31,7 +32,7 @@ function App() {
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/login' element={<LoginForm/>}></Route>
         <Route path='/register' element={<RegisterForm/>}></Route>
-        
+        <Route path='/admin' element={<Admin/>}></Route>
       </Routes>
       </Layout>
       </Provider>

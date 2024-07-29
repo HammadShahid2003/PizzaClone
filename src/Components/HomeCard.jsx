@@ -13,7 +13,7 @@ function HomeCard({pid,name,price,src}){
     // const {cartCount,setCartCount,cartItems,setCartItems}=useCart();
     const dispatch=useDispatch();
     const cartItems=useSelector(state=>state.cart.items);
-
+    
 return(
 
     <>

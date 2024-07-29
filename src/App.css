@@ -127,3 +127,20 @@ box-shadow: -10px 3px 20px grey;
   min-width: 0;
   flex-direction:row-reverse;
 }
+.Admin-Form-items{
+  
+  margin: 1rem;
+}
+.Admin-Form{
+  box-shadow: -10px 3px 20px grey;
+  padding: 1rem;
+  padding-right: 2rem;
+  background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+font-size: large;
+font-weight: 500;
+border-radius: 5%;
+
+}
