@@ -7,3 +7,11 @@ In HomeCard, Cart, CartCard and store.js and cartSlice file are added inorder to
 Added admin panel which can be accessed by /admin route<br>
 updated getting of pizzas data by using redux thunk<br>
 Added components edit pizza, add pizza, delete pizza with validations using formik and Yup<br>
+
+<h2>Commit 02-08-2024</h2>
+
+Added an auth protected component for admin login<br>
+use custom hook for login<br>
+added eslint and fixed eslint errors in code<br>
+added storybook in project
+

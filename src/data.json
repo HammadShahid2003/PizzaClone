@@ -1,14 +1,14 @@
 {
   "pizzas": [
     {
-      "id": "1",
       "name": "Non-Veg Supreme",
       "src": "https://www.dominos.co.in/files/items/Non-Veg_Supreme.jpg",
       "price": {
-        "small": 160,
+        "small": 180,
         "medium": 200,
         "large": 240
-      }
+      },
+      "id": "1"
     },
     {
       "id": "2",

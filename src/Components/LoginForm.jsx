@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Flex, Card, Layout, Menu, Row, theme,Col, Space,Button ,Alert} from 'antd';
+import React from 'react';
+import { Layout, Row,Col, Button ,Alert} from 'antd';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { loginSchema } from '../forms/loginSchema';
+import { useNavigate } from 'react-router-dom';
+import useLoginStatus from '../hooks/useLoginStatus';
 const initialValues={
 email:"",
 password:"",
@@ -11,17 +13,21 @@ password:"",
 
 const LoginForm = () => {
     const { Content} = Layout;
+    const {login}= useLoginStatus();
+    const navigate = useNavigate();
 
 
-  const {
-    token: { ColorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+ 
 
 const {values,errors,handleChange,handleSubmit,touched}=useFormik({
 initialValues:initialValues,
 validationSchema:loginSchema,
 onSubmit:(values,action)=>{
-  console.log(values);
+  
+  if(values.email=="admin@gmail.com" && values.password=="12345678"){
+    login();
+    navigate('/admin');
+  }
   action.resetForm();
 }
 
@@ -40,7 +46,7 @@ onSubmit:(values,action)=>{
         <form onSubmit={handleSubmit} >
           <p className='login-title'>Login</p>
         <input type="email" placeholder='Enter Email' name='email' value={values.email} className='login-input-fields' onChange={handleChange} autoComplete='false'/>
-         {errors.email || touched.email ?<Alert message={errors.email.toUpperCase()} type="error" />:null} 
+         {errors.email || touched.email ?<Alert message={errors.email} type="error" />:null} 
         <br/>
         <input type='password' placeholder='Enter Password' name='password' value={values.password} className='login-input-fields' onChange={handleChange} autoComplete='false'/>
          {errors.password || touched.password ?<Alert message={errors.password} type="error" />:null} 

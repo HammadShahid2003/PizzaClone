@@ -1,10 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { Flex, Card, Layout, Menu, Row, theme,Col, Space,Button } from 'antd';
-import { Link } from 'react-router-dom';
-import data from '../data.json'
-import Icon,{DeleteTwoTone,MinusOutlined,PlusOutlined} from '@ant-design/icons'
+import { Flex, Layout, Button } from 'antd';
 import CartCard from './CartCard';
-import useCart from '../CartContext';
+
 import { useSelector } from 'react-redux';
 const Cart = () => {
     const {Content} = Layout;
@@ -12,10 +9,7 @@ const Cart = () => {
     
     
     
-  const {
-    token: { ColorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-  
+ 
    
 const [totalPrice,setTotalPrice]=useState(0);
    

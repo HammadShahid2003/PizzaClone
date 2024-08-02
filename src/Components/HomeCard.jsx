@@ -1,7 +1,9 @@
+import React from 'react';
+
 import {  Card,Button } from 'antd';
 
 import { useState } from 'react';
-import useCart from '../CartContext';
+
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../cartSlice';
 import { useSelector } from 'react-redux';
